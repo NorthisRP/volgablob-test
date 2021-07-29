@@ -1,5 +1,5 @@
 const express = require("express");
-const { Client } = require("@elastic/elasticsearch");
+// const { Client } = require("@elastic/elasticsearch");
 // const fs = require("fs");
 // const client = new Client({ node: "http://localhost:9200" });
 const app = express();
