@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import DataJSON from "./DataJSON";
+import DataTable from "./DataTable";
+import { Container } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import { ButtonGroup } from "@material-ui/core";
 
 export default function DataPage() {
+  const [table, setTable] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("api/load/data")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
-    <div>
-      <DataJSON />
-    </div>
+    <Container>
+      <ButtonGroup size="large">
+        <Button
+          onClick={() => {
+            setTable(false);
+          }}
+        >
+          JSON
+        </Button>
+        <Button
+          onClick={() => {
+            setTable(true);
+          }}
+        >
+          Table
+        </Button>
+      </ButtonGroup>
+      {table ? <DataTable data={data} /> : <DataJSON data={data} />}
+    </Container>
   );
 }

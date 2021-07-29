@@ -1,33 +1,21 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 
-export default function DataJSON() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("api/load/data")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
+export default function DataJSON(props) {
   return (
     <div>
-      {data.map((obj) => {
+      {props.data.map((obj) => {
         return (
-          <div>
+          <Container style={{ marginBottom: "20px" }}>
             {Object.keys(obj._source).map((el) => {
               return (
-                <h1>
+                <Typography variant="h4" color="textPrimary">
                   {el}: {obj._source[el]}
-                </h1>
+                </Typography>
               );
             })}
-          </div>
+          </Container>
         );
       })}
     </div>
