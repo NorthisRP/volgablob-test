@@ -1,9 +1,9 @@
-import "./App.css";
+import DataPage from "./Components/DataPage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <DataPage />
     </div>
   );
 }
