@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 import { ButtonGroup } from "@material-ui/core";
 
 export default function DataPage() {
-  const [table, setTable] = useState(false);
+  const [table, setTable] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -26,17 +26,17 @@ export default function DataPage() {
       <ButtonGroup size="large">
         <Button
           onClick={() => {
-            setTable(false);
-          }}
-        >
-          JSON
-        </Button>
-        <Button
-          onClick={() => {
             setTable(true);
           }}
         >
           Table
+        </Button>
+        <Button
+          onClick={() => {
+            setTable(false);
+          }}
+        >
+          JSON
         </Button>
       </ButtonGroup>
       {table ? <DataTable data={data} /> : <DataJSON data={data} />}

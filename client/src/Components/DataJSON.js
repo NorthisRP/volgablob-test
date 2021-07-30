@@ -7,10 +7,10 @@ export default function DataJSON(props) {
     <div>
       {props.data.map((obj) => {
         return (
-          <Container style={{ marginBottom: "20px" }}>
-            {Object.keys(obj._source).map((el) => {
+          <Container key={obj._source.id} style={{ marginBottom: "20px" }}>
+            {Object.keys(obj._source).map((el, index) => {
               return (
-                <Typography variant="h4" color="textPrimary">
+                <Typography key={index} variant="h4" color="textPrimary">
                   {el}: {obj._source[el]}
                 </Typography>
               );
