@@ -5,7 +5,6 @@ const client = new Client({ node: "http://localhost:9200" });
 
 router.get("/data", async (req, res) => {
   try {
-    console.log("айм хир блядь");
     const { body } = await client.search({ size: 500 });
     res.send(body.hits.hits);
   } catch (error) {

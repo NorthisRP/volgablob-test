@@ -1,4 +1,4 @@
-import DataPage from "./Components/DataPage";
+import DataPage from "./Components/PageData";
 import DetailJSON from "./Components/DetailJSON";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 function App() {
