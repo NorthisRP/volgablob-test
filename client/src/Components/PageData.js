@@ -11,7 +11,6 @@ export default function PageData() {
   const [filteredData, setFilteredData] = useState([]);
   //const [currentComments, setCurrentComments] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [filter, setFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const commentsPerPage = 10;
 
@@ -34,20 +33,14 @@ export default function PageData() {
   };
 
   const searcherHandler = (event) => {
-    setFilter(event.target.value);
+    let filter = event.target.value;
     if (!filter) {
       return setFilteredData(data);
     }
-    //const re = new RegExp(`${filter}`);
     setFilteredData(
       data.filter((obj) => obj._source.postId.toString() === filter)
     );
   };
-  // useEffect(() => {
-  //   const lastComment = currentPage * commentsPerPage;
-  //   const firstComment = lastComment - commentsPerPage;
-  //   setCurrentComments(filteredData.slice(firstComment, lastComment));
-  // }, [filteredData, currentPage]);
   const lastComment = currentPage * commentsPerPage;
   const firstComment = lastComment - commentsPerPage;
   let currentComments = filteredData.slice(firstComment, lastComment);
