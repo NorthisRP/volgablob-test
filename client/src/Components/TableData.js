@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,17 +11,10 @@ import { useDispatch } from "react-redux";
 import { saveComment } from "../store/jsonReducer";
 import { Container } from "@material-ui/core";
 import Pagination from "./Pagination";
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+import Searcher from "./Searcher";
 
 export default function TableData(props) {
   const dispatch = useDispatch();
-
-  const classes = useStyles();
   let history = useHistory();
 
   const loadJSON = (obj) => {
@@ -32,17 +24,16 @@ export default function TableData(props) {
 
   return (
     <Container>
-      <Pagination
-        commentsPerPage={props.commentsPerPage}
-        totalComments={props.totalComments}
-        paginate={props.paginate}
-      />
+      <div className="tableData--utilities">
+        <Pagination
+          commentsPerPage={props.commentsPerPage}
+          totalComments={props.totalComments}
+          paginate={props.paginate}
+        />
+        <Searcher searcherHandler={props.searcherHandler} />
+      </div>
       <TableContainer component={Paper}>
-        <Table
-          className={classes.table}
-          size="small"
-          aria-label="a dense table"
-        >
+        <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell>postId</TableCell>

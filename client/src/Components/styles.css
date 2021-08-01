@@ -1,0 +1,9 @@
+.tableData--utilities {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.tableData--buttons {
+  margin: 10px auto;
+}
