@@ -7,6 +7,7 @@ export default function Searcher({ searcherHandler }) {
       onChange={searcherHandler}
       label="Введите idPost"
       variant="outlined"
+      size="small"
     />
   );
 }

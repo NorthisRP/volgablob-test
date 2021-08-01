@@ -5,5 +5,18 @@
   margin-bottom: 10px;
 }
 .tableData--buttons {
-  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  margin: 20px auto;
+}
+.MuiTableBody-root .MuiTableRow-root {
+  cursor: pointer;
+}
+.MuiTableBody-root .MuiTableRow-root:hover {
+  background-color: rgb(226, 226, 247);
+}
+.MuiCard-root {
+  width: 400px !important;
+  margin: 20px auto;
 }

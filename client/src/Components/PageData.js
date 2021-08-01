@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./styles.css";
 import JSONData from "./JSONData";
 import TableData from "./TableData";
 import { Container } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-import { ButtonGroup } from "@material-ui/core";
 
 export default function PageData() {
   const [table, setTable] = useState(true);
@@ -56,8 +54,11 @@ export default function PageData() {
 
   return (
     <Container>
-      <ButtonGroup className="tableData--buttons" size="large">
+      <div className="tableData--buttons" size="large">
         <Button
+          color="primary"
+          variant="contained"
+          size="large"
           onClick={() => {
             setTable(true);
           }}
@@ -65,13 +66,16 @@ export default function PageData() {
           Table
         </Button>
         <Button
+          color="primary"
+          variant="contained"
+          size="large"
           onClick={() => {
             setTable(false);
           }}
         >
           JSON
         </Button>
-      </ButtonGroup>
+      </div>
       {!loading ? (
         table ? (
           <TableData

@@ -8,5 +8,12 @@ export default function Pagination({
 }) {
   const pages = Math.ceil(totalComments / commentsPerPage);
 
-  return <Paginator count={pages} onChange={paginate} shape="rounded" />;
+  return (
+    <Paginator
+      count={pages}
+      onChange={paginate}
+      color="primary"
+      variant="outlined"
+    />
+  );
 }
