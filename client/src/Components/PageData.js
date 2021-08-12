@@ -9,7 +9,6 @@ export default function PageData() {
   const [table, setTable] = useState(true);
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  //const [currentComments, setCurrentComments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const commentsPerPage = 10;
@@ -40,6 +39,7 @@ export default function PageData() {
     setFilteredData(
       data.filter((obj) => obj._source.postId.toString() === filter)
     );
+    setCurrentPage(1);
   };
   const lastComment = currentPage * commentsPerPage;
   const firstComment = lastComment - commentsPerPage;
@@ -76,6 +76,7 @@ export default function PageData() {
             commentsPerPage={commentsPerPage}
             totalComments={filteredData.length}
             paginate={paginate}
+            currentPage={currentPage}
             searcherHandler={searcherHandler}
           />
         ) : (

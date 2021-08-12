@@ -32,6 +32,7 @@ export default function TableData(props) {
           commentsPerPage={props.commentsPerPage}
           totalComments={props.totalComments}
           paginate={props.paginate}
+          currentPage={props.currentPage}
         />
         <Searcher searcherHandler={props.searcherHandler} />
       </div>
